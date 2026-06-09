@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>О проекте — PetShop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+<header class="header">
+    <div class="container">
+        <h1 class="logo">PetShop</h1>
+        <nav class="nav">
+            <a href="index.html"><i class="fas fa-home"></i> Главная</a>
+            <a href="cart.html"><i class="fas fa-shopping-cart"></i> Корзина</a>
+            <a href="about.html" class="nav-link active"><i class="fas fa-info-circle"></i> О проекте</a>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+    <!-- Главный блок о проекте -->
+    <section class="about-main">
+        <div class="about-content">
+            <h1 class="about-title">PetShop — ваш магазин для любимцев</h1>
+            <p class="about-text">
+                Современный интернет-магазин товаров для домашних животных.
+                Широкий ассортимент кормов, игрушек, одежды и аксессуаров для собак и кошек.
+            </p>
+            <div class="about-features">
+                <div class="feature-item">
+                    <i class="fas fa-shipping-fast"></i>
+                    <span>Доставка 1-3 дня</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-medal"></i>
+                    <span>Гарантия качества</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-headset"></i>
+                    <span>Поддержка 24/7</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-image">
+            <img src="images/about-hero.png" alt="PetShop команда">
+        </div>
+    </section>
+
+    <!-- Отзывы -->
+    <section class="reviews-section">
+        <h2 class="section-title"><i class="fas fa-star"></i> Отзывы покупателей</h2>
+        <div class="reviews-wrapper">
+            <button class="review-arrow prev" onclick="prevReview()">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <div id="reviews" class="reviews-grid"></div>
+            <button class="review-arrow next" onclick="nextReview()">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+        <button class="add-review-btn btn-primary" onclick="openReviewModal()">
+            <i class="fas fa-plus"></i> Оставить отзыв
+        </button>
+    </section>
+
+    <!-- Статистика -->
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">5000+</div>
+                <div class="stat-label">Счастливых клиентов</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">10000+</div>
+                <div class="stat-label">Товаров в каталоге</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">98%</div>
+                <div class="stat-label">Положительных отзывов</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Информация о разработчике -->
+    <section class="developer-section">
+        <h3>О разработчике</h3>
+        <p>Студент ННГАСУ<br>Стёпин Матвей Андреевич<br>Группа ПИи23</p>
+        </div>
+    </section>
+
+    <!-- Модальное окно отзыва -->
+    <div class="modal" id="reviewModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeReviewModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <h3>Ваш отзыв</h3>
+            <select id="reviewStars">
+                <option value="5">⭐⭐⭐⭐⭐ 5 звезд</option>
+                <option value="4">⭐⭐⭐⭐ 4 звезды</option>
+                <option value="3">⭐⭐⭐ 3 звезды</option>
+                <option value="2">⭐⭐ 2 звезды</option>
+                <option value="1">⭐ 1 звезда</option>
+            </select>
+            <textarea id="reviewText" placeholder="Расскажите о вашем опыте..."></textarea>
+            <div class="modal-actions">
+                <button onclick="addReview()" class="btn-primary">Отправить</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 PetShop. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="js/reviews.js"></script>
+</body>
+</html>

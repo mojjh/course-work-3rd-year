@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Корзина — PetShop</title>
+    <meta name="viewport" content="width=device-width, 1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="container">
+        <h1 class="logo">PetShop</h1>
+        <nav class="nav">
+            <a href="index.html">Главная</a>
+            <a href="cart.html" class="nav-link active">Корзина</a>
+            <a href="about.html">О проекте</a>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+    <section class="cart-hero">
+        <h1>🛒 Ваша корзина</h1>
+        <p>Проверьте заказ перед оформлением</p>
+    </section>
+
+    <div class="cart-layout">
+        <!-- Товары -->
+        <section class="cart-items-section">
+            <div id="cartItems" class="cart-items"></div>
+            <div class="cart-empty" id="cartEmpty" style="display: none;">
+                <i class="fas fa-shopping-cart" style="font-size: 4rem; color: #ddd;"></i>
+                <h3>Корзина пуста</h3>
+                <a href="index.html" class="btn-primary">Выбрать товары</a>
+            </div>
+        </section>
+
+        <!-- Итоги -->
+        <aside class="cart-summary">
+            <div class="summary-card">
+                <h3>Итог заказа</h3>
+                <div class="summary-row">
+                    <span>Товары:</span>
+                    <span id="subtotal">0 ₽</span>
+                </div>
+                <div class="summary-row discount">
+                    <span>Скидка:</span>
+                    <span id="discountAmount">-0 ₽</span>
+                </div>
+                <hr>
+                <div class="summary-total">
+                    <span>К оплате:</span>
+                    <strong id="totalPrice">0 ₽</strong>
+                </div>
+
+                <div class="promo-section">
+                    <input type="text" id="promoCode" placeholder="Промокод: Зачет" maxlength="20">
+                    <button onclick="applyPromo()" class="btn-small">Применить</button>
+                </div>
+
+                <button class="btn-primary checkout-btn" onclick="checkout()">
+                    Оформить заказ
+                </button>
+            </div>
+
+            <!-- Профиль -->
+
+            <div class="delivery-section">
+                <h4>📦 Данные для доставки</h4>
+                <button class="btn-primary" onclick="openDeliveryModal()">
+                    <i class="fas fa-edit"></i> Заполнить данные доставки
+                </button>
+
+                <!-- Блок комментариев (изначально пустой) -->
+                <div id="deliveryComments" class="delivery-comments">
+
+                </div>
+            </div>
+
+        </aside>
+    </div>
+
+    <!-- Модальное окно доставки -->
+    <div class="modal" id="deliveryModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeDeliveryModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <h3>📦 Данные доставки</h3>
+            <form id="deliveryForm">
+                <input type="text" id="deliveryName" placeholder="Имя" required>
+                <input type="email" id="deliveryEmail" placeholder="Email" required>
+                <input type="tel" id="deliveryPhone" placeholder="+7 (___) ___-__-__" required>
+                <input type="text" id="deliveryAddress" placeholder="Адрес доставки" required>
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" onclick="closeDeliveryModal()">Отмена</button>
+                    <button type="submit" class="btn-primary">Отправить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <p>© 2025 PetShop. Разработчик: Студент ННГАСУ Стёпин Матвей Андреевич ПИи23</p>
+    </div>
+</footer>
+
+<script src="js/cart.js"></script>
+</body>
+</html>

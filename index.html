@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>PetShop — Магазин для животных</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="container">
+        <div class="header-left">
+            <h1 class="logo">
+                <i class="fas fa-paw"></i> PetShop
+            </h1>
+            <p class="header-subtitle">Всё для ваших любимцев</p>
+        </div>
+        <nav class="nav">
+            <a href="index.html" class="nav-link active"><i class="fas fa-home"></i> Главная</a>
+            <a href="cart.html" class="nav-link"><i class="fas fa-shopping-cart"></i> Корзина (<span id="cartCount">0</span>)</a>
+            <a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i> О проекте</a>
+        </nav>
+    </div>
+</header>
+
+<!-- Hero секция -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h2>Любовь к питомцам в каждом товаре</h2>
+            <p>Широкий ассортимент кормов, игрушек и аксессуаров для собак и кошек с доставкой по всему миру</p>
+            <button class="cta-btn" onclick="scrollToProducts()">
+                <i class="fas fa-shopping-bag"></i> Посмотреть товары
+            </button>
+        </div>
+
+    </div>
+</section>
+
+<main class="container layout">
+    <!-- Фильтры -->
+    <aside class="sidebar">
+        <h3><i class="fas fa-filter"></i> Фильтры</h3>
+
+        <div class="filter-group">
+            <label>Животные</label>
+            <select id="animalFilter">
+                <option value="all">Все питомцы</option>
+                <option value="dog">🐕 Собаки</option>
+                <option value="cat">🐱 Кошки</option>
+            </select>
+        </div>
+
+        <div class="filter-group">
+            <label>Категории</label>
+            <select id="categoryFilter">
+                <option value="all">Все товары</option>
+                <option value="food">🥫 Корм</option>
+                <option value="toys">🎾 Игрушки</option>
+                <option value="clothes">👕 Одежда</option>
+            </select>
+        </div>
+
+        <div class="filter-group">
+            <label>Цена</label>
+            <div class="price-slider">
+                <input type="range" id="priceFilter" min="0" max="15000" value="15000">
+                <div class="price-display">
+                    До <span id="priceValue">15 000</span> ₽
+                </div>
+            </div>
+        </div>
+
+        <button class="filter-reset" onclick="resetFilters()">
+            <i class="fas fa-sync-alt"></i> Сбросить
+        </button>
+    </aside>
+
+    <!-- Каталог -->
+    <section class="content">
+        <div class="section-header">
+            <h2 class="section-title">Наш ассортимент</h2>
+            <div class="stats">
+                <span id="productsCount">24 товара</span>
+                <span>Сортировка: <select id="sortFilter">
+                        <option value="name">По названию</option>
+                        <option value="price-asc">Цена: по возрастанию</option>
+                        <option value="price-desc">Цена: по убыванию</option>
+                    </select></span>
+            </div>
+        </div>
+
+        <section class="products-grid" id="productList"></section>
+        <div class="pagination" id="pagination"></div>
+    </section>
+</main>
+
+<!-- Модальное окно товара -->
+<div class="modal" id="productModal">
+    <div class="modal-content large">
+        <button class="modal-close" onclick="closeProductModal()">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="modal-body">
+            <img id="modalImage" alt="Товар">
+            <div class="modal-info">
+                <h3 id="modalTitle"></h3>
+                <div class="modal-price" id="modalPrice"></div>
+                <p id="modalDescription"></p>
+                <div class="modal-actions">
+                    <button id="modalAddBtn" class="btn-primary">
+                        <i class="fas fa-cart-plus"></i> В корзину
+                    </button>
+                    <button class="btn-secondary">
+                        <i class="fas fa-heart"></i> В избранное
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>PetShop</h3>
+                <p>Разработчик: Студент ННГАСУ<br>Стёпин Матвей Андреевич ПИи23</p>
+            </div>
+            <div class="footer-section">
+                <h4>Контакты</h4>
+                <p><i class="fas fa-phone"></i> +7 (999) 123-45-67</p>
+                <p><i class="fas fa-envelope"></i> info@petshop.ru</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 PetShop. Все права защищены.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
